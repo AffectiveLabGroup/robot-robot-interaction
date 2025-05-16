@@ -217,10 +217,16 @@ public class ModuloRobotRobotActivity extends TopBaseActivity {
             @Override
             public void onMessageReceived(String robotId, String message) {
                 runOnUiThread(() -> {
+                    writeDialogue(message);
                     if(!robotId.equalsIgnoreCase(nameRobot)) return;
 
                     try {
                         Log.i("registrar Consulta", message + "---" + robotId);
+                        if (nameRobot.equalsIgnoreCase(robotsNames.Lolo.name())){
+                            if (message.toLowerCase().contains("chao".toLowerCase()) || message.contains("adios".toLowerCase()) ) {
+                                return;
+                            }
+                        }
                         registrarConsulta(message);
                     } catch (IOException | InterruptedException e) {
                         throw new RuntimeException(e);
@@ -238,7 +244,7 @@ public class ModuloRobotRobotActivity extends TopBaseActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    writeDialogue(msg, true);
+                    //writeDialogue(msg);
                     speechControl.hablar(msg);
                 }
             }, 1000);
@@ -298,7 +304,7 @@ public class ModuloRobotRobotActivity extends TopBaseActivity {
         if(!texto.isEmpty()) {
             respuesta = texto;
             try {
-                writeDialogue(respuesta, false);
+               // writeDialogue(respuesta);
                 consultaChatCompletions(respuesta);
             } catch (IOException | InterruptedException e) {
                 throw new RuntimeException(e);
@@ -306,7 +312,8 @@ public class ModuloRobotRobotActivity extends TopBaseActivity {
         }
     }
 
-    private void writeDialogue(String consulta, Boolean pos) {
+    private void writeDialogue(String consulta) {
+        boolean pos = nameRobot.equalsIgnoreCase(robotsNames.Lola.name());
         chatArrayAdapter.add(new MensajeChat(pos, consulta));
         conversacion.add(new MensajeChat(pos, consulta));
     }
@@ -328,7 +335,7 @@ public class ModuloRobotRobotActivity extends TopBaseActivity {
                         try {
                             handler.removeCallbacksAndMessages(null);
                             gestionVoz(vozSeleccionada, AccionReproduccionVoz.HABLAR);
-                            writeDialogue(consultaChatGPT, true);
+                            //writeDialogue(consultaChatGPT);
                             speechControl.finHablaRunnable(() -> {
                                 Log.i("Probando espera", respuestaGPT);
                                 socketModule.sendMsg(emisor, respuestaGPT);
