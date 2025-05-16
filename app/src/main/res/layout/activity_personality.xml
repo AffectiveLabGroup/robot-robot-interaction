@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/Personalizacion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="75dp"
+        android:paddingLeft="10dp">
+
+
+        <TextView
+            android:id="@+id/textViewTitleEscribirNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="start"
+            android:text="Elige mi Personalidad &#128512;"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPurple"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botonModeLola"
+            android:layout_width="748dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/button_rounded_light"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="Hola, soy Lola una muchacha conversadora y entusiasta &#128105;"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botonModeLolo"
+            android:layout_width="753dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/button_rounded_light"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="Hola, soy Lolo un muchacho introvertido y timido &#128113;"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/botonAtras"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/button_rounded"
+            android:drawableStart="@drawable/baseline_arrow_back_24"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="Atrás"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
